@@ -22,28 +22,47 @@
   // TODO: Add code to display the current date in the header of the page.
 //});
 
+
 $(function() {
-  $("#currentDay").text(dayjs().format("dddd, MMMM D, YYYY"));
+  function updateCurrentTime() {
+    $("#currentDay").text(dayjs().format("dddd, MMMM D, YYYY, HH:mm:ss"));
+  }
+
+  updateCurrentTime();
+
+  setInterval(updateCurrentTime, 1000);
+
   $(".saveBtn").on("click", function () {
     var timeBlock = $(this).siblings(".description");
     var eventText = timeBlock.children("textarea").val();
-    var timeBlockId = timeBlock.attr("id");
+    var timeBlockId = timeBlock.parent().attr("id");
 
-localStorage.setItem(timeBlockId, eventText);
+    localStorage.setItem(timeBlockId, eventText);
   });
 
   $(".description").each(function() {
-    var hour = parseInt($(this).attr("id").split("-")[1]);
-    var currentHour = dayjs().hour();
+    var id = $(this).parent().attr("id");
 
-        if (hour < currentHour) {
-          $(this).addClass("past");
-        } else if (hour === currentHour) {
-          $(this).addClass("present");
-        } else {
-          $(this).addClass("Future");
-        }
-      });
-  })
+    if (id && id.includes("-")) {
+      var hour = parseInt(id.split("-")[1]);
+      var currentHour = dayjs().hour();
 
+      $(this).removeClass("past present future");
 
+      if (hour < currentHour) {
+        $(this).addClass("past");
+      } else if (hour === currentHour) {
+        $(this).addClass("present");
+      } else {
+        $(this).addClass("future");
+      }
+    }
+  });
+
+  $(".description").each(function (){
+    var timeBlockId = $(this).parent().attr("id");
+    var eventText = localStorage.getItem(timeBlockId);
+
+    $(this).children("textarea").val(eventText);
+  });
+});

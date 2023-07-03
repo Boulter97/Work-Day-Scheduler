@@ -31,6 +31,19 @@ $(function() {
 
 localStorage.setItem(timeBlockId, eventText);
   });
-})
+
+  $(".description").each(function() {
+    var hour = parseInt($(this).attr("id").split("-")[1]);
+    var currentHour = dayjs().hour();
+
+        if (hour < currentHour) {
+          $(this).addClass("past");
+        } else if (hour === currentHour) {
+          $(this).addClass("present");
+        } else {
+          $(this).addClass("Future");
+        }
+      });
+  })
 
 

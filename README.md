@@ -2,7 +2,7 @@ Work-Day-Scheduler
 -
 **Project Description**
 -
-This homework is to create a simple calendar application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+This homework is to take the existing code of a simple calendar application that allows a user to save events for each hour of the day and make it functional using the day.js library. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery. 
  
 **User Story**
 -
@@ -29,9 +29,10 @@ This homework is to create a simple calendar application that allows a user to s
 
 **Deployed link & Screenshot**
 -
-- (Put Link Here)
+- https://conorworkdayscheduler.netlify.app/
 
-(Put Screenshot Here)
+<img width="723" alt="Screenshot 2023-07-03 at 7 38 58 pm" src="https://github.com/Boulter97/Work-Day-Scheduler/assets/118101244/22d69653-cc40-40ca-94af-2421c25616c9">
+<img width="718" alt="Screenshot 2023-07-03 at 7 38 43 pm" src="https://github.com/Boulter97/Work-Day-Scheduler/assets/118101244/df767537-9395-4c54-8c1d-fe2df65d68d4">
 
 
 **References & Resources**
@@ -40,3 +41,4 @@ This homework is to create a simple calendar application that allows a user to s
 - https://www.youtube.com/
 - https://developer.mozilla.org/en-US/
 - https://courses.bootcampspot.com/courses/2384/assignments/44572?module_item_id=828704
+- https://day.js.org/docs/en/installation/installation
